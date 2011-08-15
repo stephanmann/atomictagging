@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Shell
+Bundle-SymbolicName: org.atomictagging.client.shell;singleton:=true
+Bundle-Version: 0.0.1.qualifier
+Bundle-Activator: org.atomictagging.internal.client.shell.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.apache.commons.lang;bundle-version="2.5.0",
+ org.apache.commons.configuration;bundle-version="1.6.0",
+ org.atomictagging.core;bundle-version="0.0.1",
+ org.atomictagging.shell;bundle-version="1.0.0"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6

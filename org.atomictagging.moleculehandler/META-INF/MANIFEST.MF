@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Mhandlers
+Bundle-SymbolicName: org.atomictagging.moleculehandler
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: org.atomictagging.core;bundle-version="0.0.1",
+ org.apache.commons.configuration;bundle-version="1.6.0"
+Export-Package: org.atomictagging.moleculehandler.base,
+ org.atomictagging.moleculehandler.image,
+ org.atomictagging.moleculehandler.video
