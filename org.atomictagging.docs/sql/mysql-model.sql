@@ -2,12 +2,15 @@ SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL';
 
+DROP SCHEMA IF EXISTS `atomictagging` ;
 CREATE SCHEMA IF NOT EXISTS `atomictagging` DEFAULT CHARACTER SET utf8 ;
 USE `atomictagging` ;
 
 -- -----------------------------------------------------
 -- Table `atomictagging`.`atoms`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `atomictagging`.`atoms` ;
+
 CREATE  TABLE IF NOT EXISTS `atomictagging`.`atoms` (
   `atomid` INT NOT NULL AUTO_INCREMENT ,
   `data` TEXT NOT NULL ,
@@ -18,6 +21,8 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `atomictagging`.`tags`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `atomictagging`.`tags` ;
+
 CREATE  TABLE IF NOT EXISTS `atomictagging`.`tags` (
   `tagid` INT NOT NULL AUTO_INCREMENT ,
   `tag` VARCHAR(255) NOT NULL ,
@@ -29,6 +34,8 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `atomictagging`.`molecules`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `atomictagging`.`molecules` ;
+
 CREATE  TABLE IF NOT EXISTS `atomictagging`.`molecules` (
   `moleculeid` INT NOT NULL AUTO_INCREMENT ,
   PRIMARY KEY (`moleculeid`) )
@@ -38,6 +45,8 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `atomictagging`.`molecule_has_tags`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `atomictagging`.`molecule_has_tags` ;
+
 CREATE  TABLE IF NOT EXISTS `atomictagging`.`molecule_has_tags` (
   `molecules_moleculeid` INT NOT NULL ,
   `tags_tagid` INT NOT NULL ,
@@ -60,6 +69,8 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `atomictagging`.`molecule_has_atoms`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `atomictagging`.`molecule_has_atoms` ;
+
 CREATE  TABLE IF NOT EXISTS `atomictagging`.`molecule_has_atoms` (
   `molecules_moleculeid` INT NOT NULL ,
   `atoms_atomid` INT NOT NULL ,
@@ -82,8 +93,10 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `atomictagging`.`types`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `atomictagging`.`types` ;
+
 CREATE  TABLE IF NOT EXISTS `atomictagging`.`types` (
-  `typeid` INT NOT NULL ,
+  `typeid` INT NOT NULL AUTO_INCREMENT ,
   `type` VARCHAR(255) NOT NULL ,
   PRIMARY KEY (`typeid`) ,
   UNIQUE INDEX `type_UNIQUE` (`type` ASC) )
@@ -93,6 +106,8 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `atomictagging`.`atom_has_types`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `atomictagging`.`atom_has_types` ;
+
 CREATE  TABLE IF NOT EXISTS `atomictagging`.`atom_has_types` (
   `atoms_atomid` INT NOT NULL ,
   `types_typeid` INT NOT NULL ,
