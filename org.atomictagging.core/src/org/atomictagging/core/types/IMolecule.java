@@ -15,6 +15,8 @@ package org.atomictagging.core.types;
 
 import java.util.List;
 
+import org.atomictagging.core.types.Molecule.MoleculeBuilder;
+
 /**
  * Representation of a molecule.
  */
@@ -67,5 +69,11 @@ public interface IMolecule extends IEntity {
 	 * @return All atoms that are of the given type
 	 */
 	public List<IAtom> getAtomsOfType( final String type );
+
+
+	/**
+	 * @return
+	 */
+	MoleculeBuilder modify();
 
 }
